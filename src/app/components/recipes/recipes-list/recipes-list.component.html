@@ -1,9 +1,11 @@
 <div class="recipe">
-  <div class="add-recipe">
+  <div class="recipe-add">
     <button mat-raised-button color="accent">Add Recipe</button>
   </div>
+  <div class="hr-line"></div>
   <div class="recipe-list">
-    <app-recipe-item></app-recipe-item>
-    <app-recipe-item></app-recipe-item>
+    <app-recipe-item [recipes]="recipes"></app-recipe-item>
+    <app-recipe-item [recipes]="recipes"></app-recipe-item>
+    <app-recipe-item [recipes]="recipes"></app-recipe-item>
   </div>
 </div>
