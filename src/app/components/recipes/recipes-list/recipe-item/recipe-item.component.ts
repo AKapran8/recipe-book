@@ -6,10 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./recipe-item.component.scss']
 })
 export class RecipeItemComponent {
-  @Input('recipes') recipes: any;
+  @Input('recipe') recipe: any;
 
   constructor() {
-    console.log(this.recipes)
+    console.log(this.recipe)
   }
 
 }

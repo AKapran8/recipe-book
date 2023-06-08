@@ -1,11 +1,13 @@
 .form {
+  margin-bottom: 24px;
+
+  &-content {
     display: flex;
     gap: 24px;
+  }
 
-    &-actions button {
-        display: inline-block;
-        margin-left: 16px;
-
-     
-    }
+  &-actions button {
+    display: inline-block;
+    margin-left: 16px;
+  }
 }
