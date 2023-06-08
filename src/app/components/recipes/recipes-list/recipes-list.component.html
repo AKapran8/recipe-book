@@ -4,6 +4,10 @@
   </div>
   <div class="hr-line"></div>
   <div class="recipe-list">
-    <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>
+    <app-recipe-item
+      (selectItem)="onSelectRecipe(recipe)"
+      *ngFor="let recipe of recipes"
+      [recipe]="recipe"
+    ></app-recipe-item>
   </div>
 </div>

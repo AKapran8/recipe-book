@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { IRecipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipes-list',
@@ -6,7 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipes-list.component.scss'],
 })
 export class RecipesListComponent {
-  public recipes = [
+  @Output() selectedRecipe = new EventEmitter<IRecipe>();
+  public recipes: IRecipe[] = [
     {
       name: 'This is first recipe',
       description: 'Lorem ipsum',
@@ -20,4 +22,8 @@ export class RecipesListComponent {
         'https://images.pexels.com/photos/2913125/pexels-photo-2913125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
   ];
+
+  public onSelectRecipe(recipe: IRecipe): void {
+    this.selectedRecipe.emit(recipe);
+  }
 }
