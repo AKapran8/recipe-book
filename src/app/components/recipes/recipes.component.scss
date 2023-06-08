@@ -3,6 +3,14 @@
   justify-content: space-between;
 }
 
+.list {
+  flex: 70;
+}
+
+.detail {
+  flex: 30;
+}
+
 @media (max-width: 768px) {
   .container {
     display: block;
