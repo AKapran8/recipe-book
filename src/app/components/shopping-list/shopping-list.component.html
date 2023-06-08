@@ -1,5 +1,10 @@
 <div class="container">
     <app-shopping-edit></app-shopping-edit>
     <div class="hr-line"></div>
+    <ul class="ingredients-list">
+        <li *ngFor="let ing of ingredients" >
+            {{ing.name}} ({{ing.amount}})
+        </li>
+    </ul>
     The shopping list
 </div>

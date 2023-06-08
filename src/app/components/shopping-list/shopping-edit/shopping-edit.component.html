@@ -1,1 +1,28 @@
-<p>shopping-edit works!</p>
+<div>
+  <form class="form">
+    <div class="filed">
+      <mat-form-field>
+        <mat-label for="name">Name</mat-label>
+        <input matInput type="text" id="name" />
+      </mat-form-field>
+    </div>
+    <div class="filed">
+      <mat-form-field>
+        <mat-label for="amount">Amount</mat-label>
+        <input matInput type="number" min="1" id="amount" />
+      </mat-form-field>
+    </div>
+    <br>
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">
+        <span>Add</span>
+      </button>
+      <button mat-raised-button color="warn" type="button">
+        <span>Delete</span>
+      </button>
+      <button mat-stroked-button color="primary" type="button">
+        <span>Clear</span>
+      </button>
+    </div>
+  </form>
+</div>
