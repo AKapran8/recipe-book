@@ -12,9 +12,18 @@
       </nav>
     </div>
     <div class="header-right">
-      <p>Manage</p>
-      <mat-icon class="manage-icon">expand_more</mat-icon>
-      <!-- transform: rotate(180deg); -->
+      <button mat-raised-button color="primary" appDropdown>
+        <mat-icon>expand_more</mat-icon>
+        <span>Manage Recipe</span>
+      </button>
+      <ul class="hide">
+        <li>
+          <a href="#">Save Data </a>
+        </li>
+        <li>
+          <a href="#">Fetch Data</a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
