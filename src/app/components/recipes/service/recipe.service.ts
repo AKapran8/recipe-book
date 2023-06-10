@@ -5,9 +5,9 @@ import { IRecipe } from '../recipe.model';
   providedIn: 'root'
 })
 export class RecipeService {
-  public selectedRecipe = new EventEmitter<IRecipe | null>();
   private _recipes: IRecipe[] = [
     {
+      id: 1,
       name: 'This is first recipe',
       description: 'Lorem ipsum',
       imageUrl:
@@ -15,6 +15,7 @@ export class RecipeService {
       ingredients: [{ name: 'Potato', amount: 5 }],
     },
     {
+      id: 2,
       name: 'This is second recipe',
       description: 'Lorem ipsum',
       imageUrl:
@@ -27,5 +28,10 @@ export class RecipeService {
 
   public getRecipes(): IRecipe[] {
     return this._recipes;
+  }
+
+  public getRecipeById(recipeId: number): IRecipe | null {
+    const recipe: IRecipe | null = this._recipes.find(r => r.id === recipeId) || null;
+    return recipe;
   }
 }

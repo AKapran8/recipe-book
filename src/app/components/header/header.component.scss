@@ -22,6 +22,7 @@
     justify-content: flex-start;
     gap: 8px;
     margin-bottom: 16px;
+
   }
 
   &-title a {
@@ -42,4 +43,8 @@
     font-size: 16px;
     margin-bottom: 4px;
   }
+}
+
+.active {
+  color: aqua !important;
 }

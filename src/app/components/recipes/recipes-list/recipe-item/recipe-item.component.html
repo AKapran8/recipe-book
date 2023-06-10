@@ -1,4 +1,4 @@
-<a href="#" (click)="onSelectHandler()" class="recipe-item">
+<a class="recipe-item" routerLinkActive="active" [routerLink]="[recipe?.id]" >
     <div class="recipe-content">
         <div class="recipe-info">
             <h3 class="recipe-name">{{recipe?.name}}</h3>

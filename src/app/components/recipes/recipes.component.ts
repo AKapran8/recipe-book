@@ -22,9 +22,7 @@ export class RecipesComponent implements OnInit, OnDestroy {
   }
 
   private _selectedRecipeSubscription(): void {
-    this._selectedRecipeSub = this._recipeService.selectedRecipe.subscribe((recipe: IRecipe) => {
-      this.selectedRecipe = recipe;
-    })
+
   }
 
   public showRecipeDetail(recipe: IRecipe): void {

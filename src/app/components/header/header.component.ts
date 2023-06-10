@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +6,4 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Output() selectedPath = new EventEmitter<'RECIPE' | 'SHOPPING'>();
-
-  public onSelect(path: 'SHOPPING' | 'RECIPE'): void {
-    this.selectedPath.emit(path);
-  }
 }

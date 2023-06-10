@@ -1,13 +1,19 @@
 <div class="header">
   <div class="header-container">
     <div class="header-left">
-      <h2 class="header-title">
-        <a href="#">Recipe Book</a>
+      <h2 class="header-title" routerLink="">
+        <a> Recipe Book </a>
       </h2>
       <nav class="nav">
         <ul>
-          <li (click)="onSelect('RECIPE')">Recipe</li>
-          <li (click)="onSelect('SHOPPING')">Shopping List</li>
+          <li>
+            <a routerLink="/recipes" routerLinkActive="active"> Recipe </a>
+          </li>
+          <li>
+            <a routerLink="/shopping-list" routerLinkActive="active">
+              Shopping List
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -18,10 +24,10 @@
       </button>
       <ul class="hide">
         <li>
-          <a href="#">Save Data </a>
+          <a >Save Data </a>
         </li>
         <li>
-          <a href="#">Fetch Data</a>
+          <a >Fetch Data</a>
         </li>
       </ul>
     </div>
