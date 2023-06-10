@@ -5,12 +5,12 @@
   <h3 class="recipe-detail-title">{{ recipe?.name }}</h3>
   <div class="recipe-detail-actions">
     <button mat-raised-button color="primary" appDropdown>
-      <mat-icon >expand_more</mat-icon>
+      <mat-icon>expand_more</mat-icon>
       <span>Manage Recipe</span>
     </button>
-    <ul class="hide" >
+    <ul class="hide">
       <li>
-        <a href="#">To Shopping List</a>
+        <a href="#" (click)="addIngredientToSL($event, recipe?.ingredients)" >To Shopping List</a>
       </li>
       <li>
         <a href="#">Edit Recipe</a>
@@ -23,5 +23,11 @@
   <div class="recipe-detail-description">
     {{ recipe?.description }}
   </div>
-  <div class="recipe-detail-ingredients">Ingredients list</div>
+  <div class="recipe-detail-ingredients">
+    <ul>
+      <li *ngFor="let ing of recipe?.ingredients">
+        {{ ing.name }} - {{ ing.amount }}
+      </li>
+    </ul>
+  </div>
 </div>

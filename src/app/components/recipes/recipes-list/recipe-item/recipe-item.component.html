@@ -1,11 +1,11 @@
 <a href="#" (click)="onSelectHandler()" class="recipe-item">
     <div class="recipe-content">
         <div class="recipe-info">
-            <h3 class="recipe-name">{{recipe.name}}</h3>
-            <p class="recipe-description" >{{recipe.description}}</p>
+            <h3 class="recipe-name">{{recipe?.name}}</h3>
+            <p class="recipe-description" >{{recipe?.description}}</p>
         </div>
         <div class="recipe-image">
-            <img [src]="recipe.imageUrl" alt="" style="max-width: 48px;" >
+            <img [src]="recipe?.imageUrl" alt="" style="max-width: 48px;" >
         </div>
     </div>
 </a>
