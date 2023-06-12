@@ -1,5 +1,5 @@
 <div>
-  <form class="form" *ngIf="form" [formGroup]="form" (ngSubmit)="onAddItem()">
+  <form class="form" *ngIf="form" [formGroup]="form" (ngSubmit)="addItemHandler()">
     <div class="form-content">
       <div class="filed">
         <mat-form-field>
@@ -28,12 +28,12 @@
         type="submit"
         [disabled]="!form.valid"
       >
-        <span>Add</span>
+        <span>{{editMode ? "Edit" : "Add"}}</span>
       </button>
-      <button mat-raised-button color="warn" type="button">
+      <button mat-raised-button color="warn" type="button" [disabled]="!editMode" (click)="deleteHandler()">
         <span>Delete</span>
       </button>
-      <button mat-stroked-button color="primary" type="button">
+      <button mat-stroked-button color="primary" type="button" (click)="resetFormHandler()" >
         <span>Clear</span>
       </button>
     </div>

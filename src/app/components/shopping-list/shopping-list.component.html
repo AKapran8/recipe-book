@@ -2,7 +2,16 @@
   <app-shopping-edit></app-shopping-edit>
   <div class="hr-line"></div>
   <ul class="ingredients-list">
-    <li *ngFor="let ing of ingredients">{{ ing.name }} ({{ ing.amount }})</li>
+    <li *ngFor="let ing of ingredients">
+      {{ ing.name }} ({{ ing.amount }})
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="editIngredientHandler(ing.id)"
+      >
+        Edit Ingredient
+      </button>
+    </li>
   </ul>
   <p *ngIf="!ingredients?.length">The shopping list</p>
 </div>

@@ -12,7 +12,7 @@ export class RecipeService {
       description: 'Lorem ipsum',
       imageUrl:
         'https://plus.unsplash.com/premium_photo-1664701475272-953393050754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGhvdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=900&q=60',
-      ingredients: [{ name: 'Potato', amount: 5 }],
+      ingredients: [{ name: 'Potato', amount: 5, id: 123 }],
     },
     {
       id: 2,
@@ -21,8 +21,8 @@ export class RecipeService {
       imageUrl:
         'https://images.pexels.com/photos/2913125/pexels-photo-2913125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       ingredients: [
-        { name: 'Meat', amount: 35 },
-        { name: 'Lemon', amount: 1 },
+        { name: 'Meat', amount: 35, id: 1 },
+        { name: 'Lemon', amount: 1, id: 456 },
       ],
     },
   ];
