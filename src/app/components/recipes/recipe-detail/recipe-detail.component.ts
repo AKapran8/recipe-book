@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class RecipeDetailComponent implements OnInit, OnDestroy {
   public recipe: IRecipe | null = null;
   private _recipeId: number = 0;
+  public SHOPPING_LIST_URL: string = '../../shopping-list';
 
   private _routeParamsSub: Subscription | null = null;
 
@@ -21,7 +22,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     private _SLService: ShoppingListService,
     private _recipeService: RecipeService,
     private _route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this._initComponent();
@@ -36,18 +37,14 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
       this._recipeId = +params['id'];
 
       if (this._recipeId) this._getRecipeById();
-    })
+    });
   }
 
   private _getRecipeById(): void {
-    this.recipe = this._recipeService.getRecipeById(this._recipeId)
+    this.recipe = this._recipeService.getRecipeById(this._recipeId);
   }
 
-  public addIngredientToSL(
-    event: Event,
-    ingredients: IIngredient[] = []
-  ): void {
-    event.preventDefault();
+  public addIngredientToSL(ingredients: IIngredient[] = []): void {
     this._SLService.addIngredientsList(ingredients);
   }
 
