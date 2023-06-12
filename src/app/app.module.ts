@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from "@angular/forms";
 
 import { MatIconModule } from '@angular/material/icon';
@@ -40,6 +41,7 @@ import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edi
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
     MatInputModule

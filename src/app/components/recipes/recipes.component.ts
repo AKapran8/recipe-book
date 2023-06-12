@@ -6,24 +6,20 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.scss']
+  styleUrls: ['./recipes.component.scss'],
 })
 export class RecipesComponent implements OnInit, OnDestroy {
   selectedRecipe: IRecipe | null = null;
 
-  private _selectedRecipeSub: Subscription | null = null
+  private _selectedRecipeSub: Subscription | null = null;
 
-  constructor(private _recipeService: RecipeService) {
-
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this._selectedRecipeSubscription()
+    this._selectedRecipeSubscription();
   }
 
-  private _selectedRecipeSubscription(): void {
-
-  }
+  private _selectedRecipeSubscription(): void {}
 
   public showRecipeDetail(recipe: IRecipe): void {
     this.selectedRecipe = recipe;

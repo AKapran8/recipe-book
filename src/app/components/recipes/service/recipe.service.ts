@@ -1,8 +1,8 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { IRecipe } from '../recipe.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RecipeService {
   private _recipes: IRecipe[] = [
@@ -20,18 +20,22 @@ export class RecipeService {
       description: 'Lorem ipsum',
       imageUrl:
         'https://images.pexels.com/photos/2913125/pexels-photo-2913125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      ingredients: [{ name: 'Meat', amount: 35 }, { name: "Lemon", amount: 1 }],
+      ingredients: [
+        { name: 'Meat', amount: 35 },
+        { name: 'Lemon', amount: 1 },
+      ],
     },
   ];
 
-  constructor() { }
+  constructor() {}
 
   public getRecipes(): IRecipe[] {
     return this._recipes;
   }
 
   public getRecipeById(recipeId: number): IRecipe | null {
-    const recipe: IRecipe | null = this._recipes.find(r => r.id === recipeId) || null;
+    const recipe: IRecipe | null =
+      this._recipes.find((r) => r.id === recipeId) || null;
     return recipe;
   }
 }
