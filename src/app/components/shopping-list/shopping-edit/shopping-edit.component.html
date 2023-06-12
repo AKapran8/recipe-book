@@ -1,22 +1,33 @@
 <div>
-  <form class="form">
+  <form class="form" *ngIf="form" [formGroup]="form" (ngSubmit)="onAddItem()">
     <div class="form-content">
       <div class="filed">
         <mat-form-field>
           <mat-label for="name">Name</mat-label>
-          <input matInput type="text" id="name" #nameInput />
+          <input matInput type="text" id="name" formControlName="name" />
         </mat-form-field>
       </div>
       <div class="filed">
         <mat-form-field>
           <mat-label for="amount">Amount</mat-label>
-          <input matInput type="number" min="1" step="1" id="amount" #amountInput />
+          <input
+            matInput
+            type="number"
+            step="1"
+            id="amount"
+            formControlName="amount"
+          />
         </mat-form-field>
       </div>
     </div>
 
     <div class="form-actions">
-      <button mat-raised-button color="primary" (click)="onAddItem()"  type="submit">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!form.valid"
+      >
         <span>Add</span>
       </button>
       <button mat-raised-button color="warn" type="button">

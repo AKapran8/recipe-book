@@ -1,21 +1,38 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ShoppingListService } from '../service/shopping-list.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
-  styleUrls: ['./shopping-edit.component.scss']
+  styleUrls: ['./shopping-edit.component.scss'],
 })
-export class ShoppingEditComponent {
-  @ViewChild('nameInput', { static: false }) nameInput: ElementRef | null = null;
-  @ViewChild('amountInput', { static: false }) amountInput: ElementRef | null = null;
+export class ShoppingEditComponent implements OnInit {
+  public form: FormGroup | null = null;
 
-  constructor(private _shopListService: ShoppingListService) { }
+  constructor(private _shopListService: ShoppingListService) {}
 
-  public onAddItem(): void {
-    const name: string = this.nameInput?.nativeElement.value
-    const amount: number = +this.amountInput?.nativeElement.value
-    this._shopListService.addIngredient({ name, amount })
+  ngOnInit(): void {
+    this._initForm();
   }
 
+  private _initForm(): void {
+    this.form = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      amount: new FormControl(null, [
+        Validators.required,
+        Validators.min(1),
+        Validators.pattern('[0-9]*'),
+      ]),
+    });
+  }
+
+  public onAddItem(): void {
+    if (!this.form?.valid) return;
+    const values: { name: string; amount: number } = this.form?.getRawValue();
+    const name: string = values.name.trim() || '';
+    const amount: number = values.amount;
+
+    this._shopListService.addIngredient({ name, amount });
+  }
 }
