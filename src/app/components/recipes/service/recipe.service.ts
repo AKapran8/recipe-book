@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { IRecipe } from '../recipe.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
+  public recipesSubject = new Subject<IRecipe[]>();
   private _recipes: IRecipe[] = [
     {
       id: 1,
@@ -37,5 +39,24 @@ export class RecipeService {
     const recipe: IRecipe | null =
       this._recipes.find((r) => r.id === recipeId) || null;
     return recipe;
+  }
+
+  public addRecipe(newRecipe: IRecipe): void {
+    this._recipes.push(newRecipe);
+    this.recipesSubject.next(this._recipes);
+    console.log(this._recipes);
+  }
+
+  public editRecipe(recipeId: number, recipe: IRecipe): void {
+    this._recipes = this._recipes.map((r) => {
+      if (r.id === recipeId) return { ...recipe, id: recipeId };
+      return r;
+    });
+    this.recipesSubject.next(this._recipes);
+  }
+
+  public deleteRecipe(id: number): void {
+    this._recipes = this._recipes.filter(r => r.id !== id);
+    this.recipesSubject.next(this._recipes);
   }
 }
