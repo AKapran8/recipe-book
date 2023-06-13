@@ -1,1 +1,41 @@
-<p>shopping-edit works!</p>
+<div>
+  <form class="form" *ngIf="form" [formGroup]="form" (ngSubmit)="addItemHandler()">
+    <div class="form-content">
+      <div class="filed">
+        <mat-form-field>
+          <mat-label for="name">Name</mat-label>
+          <input matInput type="text" id="name" formControlName="name" />
+        </mat-form-field>
+      </div>
+      <div class="filed">
+        <mat-form-field>
+          <mat-label for="amount">Amount</mat-label>
+          <input
+            matInput
+            type="number"
+            step="1"
+            id="amount"
+            formControlName="amount"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        <span>{{editMode ? "Edit" : "Add"}}</span>
+      </button>
+      <button mat-raised-button color="warn" type="button" [disabled]="!editMode" (click)="deleteHandler()">
+        <span>Delete</span>
+      </button>
+      <button mat-stroked-button color="primary" type="button" (click)="resetFormHandler()" >
+        <span>Clear</span>
+      </button>
+    </div>
+  </form>
+</div>

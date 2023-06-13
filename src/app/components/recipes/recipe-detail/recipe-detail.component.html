@@ -1,1 +1,37 @@
-<p>recipe-detail works!</p>
+<div class="recipe-detail">
+  <div class="recipe-detail-image">
+    <img [src]="recipe?.imageUrl" alt="" />
+  </div>
+  <h3 class="recipe-detail-title">{{ recipe?.name }}</h3>
+  <div class="recipe-detail-actions">
+    <button mat-raised-button color="primary" appDropdown>
+      <mat-icon>expand_more</mat-icon>
+      <span>Manage Recipe</span>
+    </button>
+    <ul class="hide">
+      <li>
+        <a
+          [routerLink]="SHOPPING_LIST_URL"
+          (click)="addIngredientToSL(recipe?.ingredients)"
+          >To Shopping List</a
+        >
+      </li>
+      <li>
+        <a routerLink="edit">Edit Recipe</a>
+      </li>
+      <li>
+        <a (click)="deleteHandler()" style="cursor: pointer;">Delete Recipe</a>
+      </li>
+    </ul>
+  </div>
+  <div class="recipe-detail-description">
+    {{ recipe?.description }}
+  </div>
+  <div class="recipe-detail-ingredients">
+    <ul>
+      <li *ngFor="let ing of recipe?.ingredients">
+        {{ ing.name }} - {{ ing.amount }}
+      </li>
+    </ul>
+  </div>
+</div>

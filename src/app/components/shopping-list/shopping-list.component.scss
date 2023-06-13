@@ -1,0 +1,12 @@
+.container {
+  margin-top: 24px;
+}
+.ingredients-list {
+  margin-top: 1rem;
+  li {
+    border: 1px solid gray;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

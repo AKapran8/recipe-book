@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  flex: 35;
+}
+
+.detail {
+  flex: 65;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: block;
+  }
+}

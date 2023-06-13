@@ -1,0 +1,39 @@
+.recipe-edit-block {
+  margin: 2rem 0 0 1rem;
+}
+.form-field {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.ingredient {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  button {
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    flex: 20%;
+  }
+
+  .ingredient-name {
+    flex: 50%;
+  }
+
+  .ingredient-amount {
+    flex: 20%;
+  }
+}
+
+.image-preview {
+  img {
+    width: 100%;
+  }
+}
+
+
+.form-actions {
+  display: flex;
+  gap: 1.5rem
+}

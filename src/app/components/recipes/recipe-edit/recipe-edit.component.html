@@ -1,0 +1,98 @@
+<div class="recipe-edit-block">
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitHandler()">
+    <div class="form-actions">
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="form.invalid"
+        type="submit"
+      >
+        {{ editMode ? "Edit" : "Add" }}
+      </button>
+
+      <button
+        mat-raised-button
+        color="warn"
+        [disabled]="form.invalid"
+        type="button"
+        (click)="cancelHandler()"
+      >
+        Cancel
+      </button>
+    </div>
+
+    <mat-form-field class="form-field">
+      <mat-label for="name">Name</mat-label>
+      <input type="text" matInput id="name" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label for="imageUrl">Image Url</mat-label>
+      <input type="string" matInput id="imageUrl" formControlName="imageUrl" />
+    </mat-form-field>
+
+    <div
+      class="image-preview"
+      *ngIf="form.get('imageUrl')?.value.trim().length"
+    >
+      <img [src]="form.get('imageUrl')?.value" />
+    </div>
+
+    <mat-form-field class="form-field">
+      <mat-label for="decsription">Description</mat-label>
+      <textarea
+        matInput
+        id="decsription"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+
+    <div class="ingredients-row" formArrayName="ingredients">
+      <div
+        class="ingredient"
+        *ngFor="let control of getIngredientsControls(); let i = index"
+        [formGroupName]="i"
+      >
+        <mat-form-field class="ingredient-name">
+          <mat-label>Ingredient</mat-label>
+          <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+        <mat-form-field class="ingredient-amount">
+          <mat-label>Amount</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="amount"
+            formControlName="amount"
+          />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="removeIngredientControl(i)"
+        >
+          Remove
+        </button>
+      </div>
+      <p *ngIf="!getIngredientsLength()">No ingredients. Add new one</p>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="addIngredientControl()"
+      >
+        Add Ingredient
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        (click)="removeIngredientsList()"
+      >
+        Remove All Ingredient
+      </button>
+
+    </div>
+  </form>
+</div>

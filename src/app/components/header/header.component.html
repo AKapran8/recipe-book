@@ -1,1 +1,35 @@
-<p>header works!</p>
+<div class="header">
+  <div class="header-container">
+    <div class="header-left">
+      <h2 class="header-title" routerLink="">
+        <a> Recipe Book </a>
+      </h2>
+      <nav class="nav">
+        <ul>
+          <li>
+            <a routerLink="/recipes" routerLinkActive="active"> Recipe </a>
+          </li>
+          <li>
+            <a routerLink="/shopping-list" routerLinkActive="active">
+              Shopping List
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-right">
+      <button mat-raised-button color="primary" appDropdown>
+        <mat-icon>expand_more</mat-icon>
+        <span>Manage Recipe</span>
+      </button>
+      <ul class="hide">
+        <li>
+          <a >Save Data </a>
+        </li>
+        <li>
+          <a >Fetch Data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
